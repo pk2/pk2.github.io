@@ -1,0 +1,8 @@
+---
+layout: post
+title:  "What's new in Nginx 1.20"
+date:   2021-05-02 08:17:13 +0200
+categories: nginx release
+---
+Nginx [1.20](https://nginx.org/en/download.html) has just been released, so let's check what new things it offers:
+"keepalive_requests" directive was changed to 1000
