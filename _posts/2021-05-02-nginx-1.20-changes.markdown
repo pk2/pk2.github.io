@@ -1,8 +1,45 @@
 ---
 layout: post
-title:  "What's new in Nginx 1.20"
+title:  "What's new in nginx 1.20"
 date:   2021-05-02 08:17:13 +0200
 categories: nginx release
 ---
-Nginx [1.20](https://nginx.org/en/download.html) has just been released, so let's check what new things it offers:
-"keepalive_requests" directive was changed to 1000
+Nginx [1.20](https://nginx.org/en/download.html) has just been released, so let's check what new things it offers from last stable version:
+
+1. the default value of the [keepalive_requests](https://nginx.org/en/docs/http/ngx_http_core_module.html#keepalive_requests) directive was changed to 1000.
+
+2.  the [keepalive_time](https://nginx.org/en/docs/http/ngx_http_upstream_module.html#keepalive_time) directive.
+
+3.  the [$connection_time](https://nginx.org/en/docs/http/ngx_http_core_module.html#var_connection_time) variable.
+
+4.  flags in the ["proxy_cookie_flags"](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_cookie_flags) directive can now contain variables.
+
+5.  the ["proxy_protocol"](https://nginx.org/en/docs/stream/ngx_stream_proxy_module.html#proxy_protocol) parameter of the "listen" directive,
+       the ["proxy_protocol"](https://nginx.org/en/docs/mail/ngx_mail_proxy_module.html#proxy_protocol) and ["set_real_ip_from"](https://nginx.org/en/docs/http/ngx_http_realip_module.html#set_real_ip_from) directives in mail proxy.
+
+6.  now, if free worker connections are exhausted, nginx starts
+       closing not only keepalive connections, but also connections in
+       lingering close.
+
+7.  the [-e](https://nginx.org/en/docs/switches.html) switch.
+
+8.  the same source files can now be specified in different
+       modules while building addon modules.
+
+9.  the ["ssl_conf_command"](https://nginx.org/en/docs/http/ngx_http_ssl_module.html#ssl_conf_command), ["proxy_ssl_conf_command"](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_ssl_conf_command),
+       ["grpc_ssl_conf_command"](https://nginx.org/en/docs/http/ngx_http_grpc_module.html#grpc_ssl_conf_command), and ["uwsgi_ssl_conf_command"](https://nginx.org/en/docs/http/ngx_http_uwsgi_module.html#uwsgi_ssl_conf_command) directives.
+
+10.  the ["ssl_reject_handshake"](https://nginx.org/en/docs/http/ngx_http_ssl_module.html#ssl_reject_handshake) directive.
+
+11.  the ["proxy_smtp_auth"](https://nginx.org/en/docs/mail/ngx_mail_proxy_module.html#proxy_smtp_auth) directive in mail proxy.
+
+12.  the [ngx_stream_set_module](https://nginx.org/en/docs/stream/ngx_stream_set_module.html)
+
+13.  the ["proxy_cookie_flags"](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_cookie_flags) directive.
+
+14.  the ["userid_flags"](https://nginx.org/en/docs/http/ngx_http_userid_module.html#userid_flags) directive.
+
+15.  the "min_free" parameter of the ["proxy_cache_path"](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_cache_path),
+       ["fastcgi_cache_path"](https://nginx.org/en/docs/http/ngx_http_fastcgi_module.html#fastcgi_cache_path), ["scgi_cache_path"](https://nginx.org/en/docs/http/ngx_http_scgi_module.html#scgi_cache_path), and ["uwsgi_cache_path"](https://nginx.org/en/docs/http/ngx_http_uwsgi_module.html#uwsgi_cache_path)
+       directives. Thanks to Adam Bambuch.
+16.  client certificate validation with OCSP.
